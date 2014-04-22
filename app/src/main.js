@@ -1,3 +1,11 @@
+var queuedFuncs = [];
+/*globals Famous*/
+window.Famous = {
+    loaded: function(func) {
+        queuedFuncs.push(func);
+    }
+};
+
 /*globals define*/
 define(function(require) {
     'use strict';
@@ -124,5 +132,13 @@ define(function(require) {
             TabBar: require('famous/widgets/TabBar'),
             ToggleButton: require('famous/widgets/ToggleButton')
         }
+    };
+
+    queuedFuncs.forEach(function(func) {
+        func();
+    });
+
+    Famous.loaded = function(func) {
+        func();
     };
 });
