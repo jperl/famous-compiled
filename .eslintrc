@@ -4,7 +4,8 @@
         "amd": true
     },
     "globals": {
-        "DocumentFragment": true
+        "DocumentFragment": true,
+        "Famous": true
     },
     "rules": {
         "valid-jsdoc": 0,
